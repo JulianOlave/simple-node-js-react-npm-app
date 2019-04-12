@@ -29,12 +29,14 @@
 //     }
 // }
 
-node {
-    stage ('build') {
-        sh 'npm install'
-    }
-    
-    stage ('Test') {
-        sh './jenkins/scripts/test/.sh'
+node ('docker') {
+    dcoker.image('node:6-alpine').inside {
+        stage ('build') {
+            sh 'npm install'
+        }
+        
+        stage ('Test') {
+            sh './jenkins/scripts/test/.sh'
+        }
     }
 }
