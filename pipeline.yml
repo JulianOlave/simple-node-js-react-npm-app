@@ -1,0 +1,4 @@
+version: 0.0.1
+language: nodejs
+nodejs_version: "8"
+pipeline_os: "Linux"
