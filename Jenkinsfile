@@ -22,7 +22,7 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                input message: 'Hello Again'
+                input message: 'Hello Again 2'
                 sh './jenkins/scripts/kill.sh'
             }
         }
