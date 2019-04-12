@@ -29,7 +29,7 @@
 //     }
 // }
 
-node ('docker') {
+node {
     dcoker.image('node:6-alpine').inside {
         stage ('build') {
             sh 'npm install'
