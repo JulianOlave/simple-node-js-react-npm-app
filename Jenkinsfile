@@ -7,9 +7,10 @@ node {
         stage ('build') {
             sh 'npm install'
         }
-        
-        stage ('Test') {
-            sh './jenkins/scripts/test/.sh'
+        withEnv(['CI=true']) {
+            stage ('Test') {
+                sh './jenkins/scripts/test/.sh'
+            }
         }
     }
 }
