@@ -1,6 +1,6 @@
 node {
     /* Requires the Docker Pipeline plugin to be installed */
-    docker.image('node:latest').inside {
+    docker.image('node:7-alpine').inside {
         stage('Test1') {
             sh 'node --version'
         }
