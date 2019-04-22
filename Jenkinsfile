@@ -3,7 +3,7 @@
 node {
 
   stage('pruebita') {
-    sh 'echo hiiii'
+    echo 'hi'
   }
     
     docker.image('node:7-alpine').inside {
