@@ -7,6 +7,10 @@
 //     sayHello 'Juliu s'
 // }
 node {
+
+  stage('pruebita') {
+    sh 'echo hiiii'
+  }
     
     docker.image('node:7-alpine').inside {
         stage('Test1') {
