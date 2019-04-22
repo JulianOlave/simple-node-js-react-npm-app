@@ -8,8 +8,6 @@
 // }
 node {
     
-    checkout scm
-
     docker.image('node:7-alpine').inside {
         stage('Test1') {
             sh 'node --version'
