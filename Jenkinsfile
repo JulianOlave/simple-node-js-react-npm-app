@@ -7,7 +7,7 @@
 
 
 node { 
-    withEnv(["PATH=C:/Program Files/Git/usr/bin"]) {
+    withEnv(["PATH=C:\\Program Files\\Git\\usr\\bin"]) {
       docker.image('node:7-alpine').inside {
           stage('Test1') {
               sh 'node --version'
