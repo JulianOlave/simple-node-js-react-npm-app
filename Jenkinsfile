@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 
-@Library('PSL@master')
-@Library('CILibrary@CBP/stable') _
+@Library('pipeline-library-demo')_
 
-StartPipeline()
+stage('Demo') {
+    echo 'Hello world'
+    sayHello 'Julius'
+}
