@@ -1,9 +1,54 @@
 version: 0.0.1
+env:
+ - PRODUCT_TYPE: "docker"
+pipeline_os: "Linux"
 language: nodejs
 nodejs_version: "8"
-pipeline_os: "Linux"
 
 build:
   scripts:
-    - "npm install"
-    - "node --version"
+    - "npm run build:all"
+
+soc2:
+  checkmarx:
+    skip: true
+    folders_exclude:
+      - "test/"
+      - "node_modules/"
+  white_source:
+    skip: true
+    third_party_lib_paths:
+      - "node_modules/"
+
+ci_test:
+  scripts:
+    - "npm run ci-test"
+  forge_platform_environment: "stg"
+  test_report_files:
+    -
+      file_name: "ut-report.xml"
+      format: junit
+
+code_analysis:
+  sonarqube:
+    src: "."
+    exclusions:
+      - test/**/*
+      - node_modules/**/*
+      - coverage*/**/*
+      - bp-scripts/**/*
+      - dist/**/*
+
+deployment:
+  -
+    type: cloudos
+    service: quantum
+    dockerfile_path: Dockerfile
+  # -
+  #   type: artifacts
+  #   os: windows
+  #   publish_to_artifactory: false
+  #   scripts:
+  #     - hostApplications\excel\installers\win\CreateInstallers.bat
+  #   outputs:
+  #     - hostApplications\excel\installers\win\Output\*
