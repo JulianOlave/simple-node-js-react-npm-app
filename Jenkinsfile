@@ -12,15 +12,8 @@ node {
             sh 'node --version'
         }
         stage('cilibrary') {
-          try {
-            StartPipeline()
-          }
-          catch(err) {                        
-            sh "ERRORE: ${err}"
-          }
-          finally{            
-            echo 'finally'
-          }
+          StartPipeline()
+          
         }
     }
 }
