@@ -7,20 +7,22 @@
 
 
 node { 
-    docker.image('node:7-alpine').inside {
-        stage('Test1') {
-            sh 'node --version'
-        }
-        stage('cilibrary') {
-          try {
-            StartPipeline()
+    withEnv(["PATH=C:\Program Files\Git\bin"]) {
+      docker.image('node:7-alpine').inside {
+          stage('Test1') {
+              sh 'node --version'
           }
-          catch(err) {                        
-            sh "E###RRORE: ${err}"
+          stage('cilibrary') {
+            try {
+              StartPipeline()
+            }
+            catch(err) {                        
+              sh "E###RRORE: ${err}"
+            }
+            finally{            
+              echo '#####finally'
+            }
           }
-          finally{            
-            echo '#####finally'
-          }
-        }
+      }
     }
 }
