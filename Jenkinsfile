@@ -8,7 +8,7 @@ node {
           sh 'npm install'
         }
         stage ('Test') {
-          sh './jenkins/scripts/test.sh'
+          sh 'TEst 1'
         }
         stage('Deliver') {
           sh './jenkins/scripts/deliver.sh' 
@@ -23,7 +23,7 @@ node {
       sh 'npm install'
     }
     stage ('#Test') {
-      sh './jenkins/scripts/test.sh'
+      sh 'TEst'
     }
     stage('#Deliver') {
       sh 'Deliver!'
