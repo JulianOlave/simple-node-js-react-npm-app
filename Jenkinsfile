@@ -1,6 +1,6 @@
 node {
  
-    docker.image('node:7-alpine').inside {
+    docker.image('node:6-alpine').inside {
         stage('Test1') {
           sh 'node --version'
         }
@@ -8,7 +8,7 @@ node {
           sh 'npm install'
         }
         stage ('Test') {
-          sh 'TEst 1'
+          sh 'npm -v'
         }
         stage('Deliver') {
           sh './jenkins/scripts/deliver.sh' 
@@ -23,7 +23,7 @@ node {
       sh 'npm install'
     }
     stage ('#Test') {
-      sh 'TEst'
+      sh 'npm -v'
     }
     stage('#Deliver') {
       sh 'Deliver!'
