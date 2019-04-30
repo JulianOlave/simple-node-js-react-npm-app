@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 
-@Library('PSL@master')
-@Library('CILibrary@stable') _
+@Library('PSL@master') _
 import com.quantum.CiUtils
 
 
