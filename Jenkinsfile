@@ -1,4 +1,13 @@
 #!/usr/bin/env groovy
+
+@Library('PSL@master')
+@Library('CILibrary@master') _
+import com.quantum.CiUtils
+
+
+def utils = new CiUtils(steps, env, docker)
+utils.setEnvironmentVariables()
+
 def branches = [:]
 def names = nodeNames()
 for (int i=0; i<names.size(); ++i) {
