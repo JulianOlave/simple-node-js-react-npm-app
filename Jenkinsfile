@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-pipeline(
+pipeline {
   stage('test on linux') {
     agent {
       label 'linux'
@@ -17,4 +17,4 @@ pipeline(
       bat 'echo hiiiii'
     }
   } 
-)
+}
