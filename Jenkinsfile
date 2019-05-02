@@ -5,7 +5,7 @@ for (int i=0; i<names.size(); ++i) {
   def nodeName = names[i];
   // Into each branch we put the pipeline code we want to execute
   branches["node_" + nodeName] = {
-    node(nodeName) {
+    node {
       echo "Triggering on " + nodeName      
     }
   }
