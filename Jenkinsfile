@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('test on linux') {
       agent {
-        label 'linux'
+        label 'master'
       }
       steps {
         sh 'echo hi'
