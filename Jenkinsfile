@@ -5,5 +5,4 @@
 import com.quantum.CiUtils
 
 
-def utils = new CiUtils(steps, env, docker)
-utils.setEnvironmentVariables()
+StartPipeline()
