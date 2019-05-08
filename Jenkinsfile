@@ -18,6 +18,8 @@ node {
         sh "rm $filename"
 
         writeYaml file: filename, data: data
+
+        sh "echo ${data.pipeline_os}"
       }
       catch (err) {
         sh "echo ${err}"
