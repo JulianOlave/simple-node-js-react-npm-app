@@ -7,7 +7,7 @@
 node {
   stage('rw') {
     try {
-      def filename = 'pipeline.yaml'
+      def filename = 'pipeline.yml'
       def data = readYaml file: filename
 
       sh "${data.pipeline_os}"
