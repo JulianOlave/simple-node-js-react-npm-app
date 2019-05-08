@@ -17,14 +17,14 @@ node {
 
         sh "rm $filename"
 
-        def data2 = readYaml file: filename
 
         writeYaml file: filename, data: data
 
-        sh "echo ${data.pipeline_os}"
+        def data2 = readYaml file: filename
+        sh "echo ${data2.pipeline_os}"
       }
       catch (err) {
-        sh "echo ${err}"
+        sh "echo Errrrrror ${err}"
       }
 
     }
