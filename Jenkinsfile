@@ -5,23 +5,25 @@
 
 // StartPipeline()
 node {
-  stage('rw') {
-    try {
-      def filename = 'pipeline.yml'
-      def data = readYaml file: filename
+  docker.image('node:7-alpine').inside { 
+    stage('rw') {
+      try {
+        def filename = 'pipeline.yml'
+        def data = readYaml file: filename
 
-      sh "${data.pipeline_os}"
+        sh "${data.pipeline_os}"
 
-      data.pipeline_os = "Windows"
+        data.pipeline_os = "Windows"
 
-      sh "rm $filename"
+        sh "rm $filename"
 
-      writeYaml file: filename, data: data
+        writeYaml file: filename, data: data
+      }
+      catch (err) {
+        sh "${err}"
+      }
+
     }
-    catch (err) {
-      sh "${err}"
-    }
-
   }
 }
 
