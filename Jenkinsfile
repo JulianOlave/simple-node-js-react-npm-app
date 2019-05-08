@@ -4,23 +4,25 @@
 // @Library('CILibrary@CBP/stable') _
 
 // StartPipeline()
-stage('rw') {
-  try {
-    def filename = 'pipeline.yaml'
-    def data = readYaml file: filename
+node {
+  stage('rw') {
+    try {
+      def filename = 'pipeline.yaml'
+      def data = readYaml file: filename
 
-    sh "${data.pipeline_os}"
+      sh "${data.pipeline_os}"
 
-    data.pipeline_os = "Windows"
+      data.pipeline_os = "Windows"
 
-    sh "rm $filename"
+      sh "rm $filename"
 
-    writeYaml file: filename, data: data
+      writeYaml file: filename, data: data
+    }
+    catch (err) {
+      sh "${err}"
+    }
+
   }
-  catch (err) {
-    sh "${err}"
-  }
-
 }
 
 
