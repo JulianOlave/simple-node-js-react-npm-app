@@ -11,7 +11,7 @@ node {
         def filename = 'pipeline.yml'
         def data = readYaml file: filename
 
-        sh "${data.pipeline_os}"
+        sh "echo ${data.pipeline_os}"
 
         data.pipeline_os = "Windows"
 
@@ -20,7 +20,7 @@ node {
         writeYaml file: filename, data: data
       }
       catch (err) {
-        sh "${err}"
+        sh "echo ${err}"
       }
 
     }
