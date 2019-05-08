@@ -9,19 +9,33 @@ node {
     stage('rw') {
       try {
         def filename = 'pipeline.yml'
-        def data = readYaml file: filename
+        if(fileExists(filename)) {
+          def data = readYaml file: filename
 
-        sh "echo ${data.pipeline_os}"
+          sh "echo ${data.pipeline_os}"
 
-        data.pipeline_os = "Windows"
+          data.pipeline_os = "Windows"
 
-        sh "rm $filename"
+          sh "rm $filename"
 
 
-        writeYaml file: filename, data: data
+          writeYaml file: filename, data: data
 
-        def data2 = readYaml file: filename
-        sh "echo ${data2.pipeline_os}"
+          def data2 = readYaml file: filename
+          sh "echo ${data2.pipeline_os}"
+        } else{
+           def amap = ['something': 'my datas',
+                      'size': 3,
+                      'isEmpty': false
+                      'version': '0.0.1',
+                      'language': 'nodejs',
+                      'nodejs_version': "8",
+                      'pipeline_os': "Linux"]
+
+          writeYaml file: filename, data: amap
+          sh 'echo wasnt there'
+        }
+
       }
       catch (err) {
         sh "echo Errrrrror ${err}"
