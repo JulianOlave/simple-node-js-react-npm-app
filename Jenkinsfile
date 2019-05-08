@@ -17,6 +17,8 @@ node {
 
         sh "rm $filename"
 
+        def data2 = readYaml file: filename
+
         writeYaml file: filename, data: data
 
         sh "echo ${data.pipeline_os}"
