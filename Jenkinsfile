@@ -26,7 +26,7 @@ node {
         } else{
            def amap = ['something': 'my datas',
                       'size': 3,
-                      'isEmpty': false
+                      'isEmpty': false,
                       'version': '0.0.1',
                       'language': 'nodejs',
                       'nodejs_version': "8",
