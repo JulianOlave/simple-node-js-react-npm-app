@@ -18,7 +18,7 @@ node {
 
           echo "${data.pipeline_os}"
 
-          echo "ENV ${data.env}"
+          echo "ENV ${data.env.type}"
 
           def builddd= data.env[0].buildArgs
 
