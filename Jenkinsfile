@@ -4,7 +4,7 @@
 // @Library('CILibrary@CBP/stable') _
 
 // StartPipeline()
-#!groovy
+
 DOCKER_ORG='artifactory.dev.adskengineer.net/autodeskcloud'
 DOCKER_REGISTRY='https://artifactory.dev.adskengineer.net/artifactory/docker-local-v2/'
 DOCKER_CREDENTIALS='artifactory-deploy-dev'
