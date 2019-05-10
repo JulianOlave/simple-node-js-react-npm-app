@@ -1,4 +1,6 @@
 #!/usr/bin/env groovy
+ENV_VAR = 'install'
+buildArgs = '--version'
 
 // @Library('PSL@master')
 // @Library('CILibrary@CBP/stable') _
@@ -22,7 +24,6 @@
 // DOCKER_ARGS="DOCKER_ORG=${DOCKER_ORG} DOCKER_TAG=${DOCKER_TAG}"
 // currentBuild.displayName = DOCKER_TAG
 
-ENV_VAR = 'install'
 
 node {
   docker.image('node:7-alpine').inside { 
