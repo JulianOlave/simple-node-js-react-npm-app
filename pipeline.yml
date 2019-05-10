@@ -7,5 +7,5 @@ env:
 
 build:
   scripts:        
-    - npm${env.buildArgs}
+    - npm ${env.buildArgs}
     - "node --version"
