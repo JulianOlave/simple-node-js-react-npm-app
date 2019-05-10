@@ -7,9 +7,9 @@ env:
 
 build:
   scripts:        
-    - ${buildArgs}
+    - "{{buildArgs}}"
     - "node --version"
 
 test:
   ulr: "{{env.buildArgs}}"
-  url2: "{{buildArgs}}"
+  url2: "{{buildArgs}}"  
