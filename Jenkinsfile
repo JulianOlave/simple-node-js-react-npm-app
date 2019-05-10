@@ -54,7 +54,7 @@ node {
           for(def cmd: data.build.scripts){
             // this.utils.runCmd(cmd)
             // echo "comand: ${cmd}"
-            sh '${cmd}'
+            sh "${cmd}"
           }
 
           sh "rm $filename"
