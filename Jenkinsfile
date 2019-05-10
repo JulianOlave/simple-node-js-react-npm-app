@@ -12,9 +12,13 @@ node {
         if(fileExists(filename)) {
           def data = readYaml file: filename
 
-          sh " ${data.pipeline_os}"
+          echo "${data.pipeline_os}"
 
-          data.pipeline_os = "Windows"
+          echo "ENV ${data.env}"
+
+          echo "buildArgs ${data.env.buildArgs}"
+
+          data.env.buildArgs = data.env.buildArgs + ' Testing!!'
 
           sh "rm $filename"
 
@@ -22,7 +26,7 @@ node {
           writeYaml file: filename, data: data
 
           def data2 = readYaml file: filename
-          sh " ${data2.pipeline_os}"
+          echo "New buildArgs ${data.env.buildArgs}"
         } else{
            def amap = ['something': 'my datas',
                       'size': 3,
@@ -33,12 +37,12 @@ node {
                       'pipeline_os': "Linux"]
 
           writeYaml file: filename, data: amap
-          sh ' wasnt there'
+          echo ' wasnt there'
         }
 
       }
       catch (err) {
-        sh " Errrrrror ${err}"
+        echo " Errrrrror ${err}"
       }
 
     }
