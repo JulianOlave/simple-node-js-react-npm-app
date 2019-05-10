@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 ENV_VAR = 'install'
-buildArgs = '--version'
+buildArgs = 'node --version'
 
 // @Library('PSL@master')
 // @Library('CILibrary@CBP/stable') _
