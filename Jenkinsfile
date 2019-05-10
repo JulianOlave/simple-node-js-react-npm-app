@@ -20,11 +20,12 @@ node {
 
           echo "ENV ${data.env[9]}"
 
-          def builddd= data.env[9].buildArgs
+          def builddd = data.env[9].buildArgs
 
           echo "buildArgs ${builddd}"
 
-          data.env.buildArgs = data.env.buildArgs + ' Testing!!'
+          builddd = builddd + ' Testing!!'
+          data.env[9].buildArgs = builddd
 
           sh "rm $filename"
 
