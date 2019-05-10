@@ -2,13 +2,14 @@ version: 0.0.1
 language: nodejs
 nodejs_version: "8"
 pipeline_os: "Linux"
+buildArgs: 'npm install'
 env:  
   - buildArgs: ${DOCKER_ARGS} BUILD_NAME=${DOCKER_TAG}
 
 build:
   scripts:        
     - "${buildArgs}"
-    - `${buildArgs}`
+    - ${buildArgs}
 
 test:
   ulr: "{{env.buildArgs}}"
