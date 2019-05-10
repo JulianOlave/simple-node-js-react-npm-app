@@ -4,6 +4,17 @@
 // @Library('CILibrary@CBP/stable') _
 
 // StartPipeline()
+#!groovy
+DOCKER_ORG='artifactory.dev.adskengineer.net/autodeskcloud'
+DOCKER_REGISTRY='https://artifactory.dev.adskengineer.net/artifactory/docker-local-v2/'
+DOCKER_CREDENTIALS='artifactory-deploy-dev'
+NODE_IMAGE='artifactory.dev.adskengineer.net/quantum-devops/cloudos-v2/base-nodejs8:latest'
+BUILD_VERSION="0.0.${BUILD_NUMBER}"
+SAFE_BRANCH_NAME=BRANCH_NAME.replaceAll('/','-')
+DOCKER_TAG=SAFE_BRANCH_NAME + "-${BUILD_VERSION}"
+DOCKER_ARGS="DOCKER_ORG=${DOCKER_ORG} DOCKER_TAG=${DOCKER_TAG}"
+currentBuild.displayName = DOCKER_TAG
+
 node {
   docker.image('node:7-alpine').inside { 
     stage('rw') {
@@ -18,9 +29,9 @@ node {
 
           echo "${data.pipeline_os}"
 
-          echo "ENV ${data.env[9]}"
+          echo "ENV ${data.env[0]}"
 
-          def builddd = data.env[9].buildArgs
+          def builddd = data.env[0].buildArgs
 
           echo "buildArgs ${builddd}"
 
