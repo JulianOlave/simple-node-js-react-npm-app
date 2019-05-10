@@ -6,8 +6,7 @@ env:
   - buildArgs: ${DOCKER_ARGS} BUILD_NAME=${DOCKER_TAG}
 
 build:
-  scripts:
-    - "npm ${ENV_VAR}"
+  scripts:    
     - 'npm ${ENV_VAR}'
     - npm ${ENV_VAR}
     - "node --version"
