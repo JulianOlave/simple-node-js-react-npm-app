@@ -48,7 +48,8 @@ node {
           builddd = builddd + ' Testing!!'
           data.env[0].buildArgs = builddd
 
-          echo "${data.test.url}"
+          echo "Url ${data.test.url}"
+          echo "Url 2 ${data.test.url2}"
 
           for(def cmd: data.build.scripts){
             // this.utils.runCmd(cmd)

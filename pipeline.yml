@@ -11,4 +11,5 @@ build:
     - "node --version"
 
 test:
-  ulr: ${env.buildArgs}
+  ulr: "{{env.buildArgs}}"
+  url2: "{{buildArgs}}"
