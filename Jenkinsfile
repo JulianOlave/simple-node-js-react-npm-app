@@ -10,7 +10,7 @@ DOCKER_REGISTRY='https://artifactory.dev.adskengineer.net/artifactory/docker-loc
 DOCKER_CREDENTIALS='artifactory-deploy-dev'
 NODE_IMAGE='artifactory.dev.adskengineer.net/quantum-devops/cloudos-v2/base-nodejs8:latest'
 BUILD_VERSION="0.0.${BUILD_NUMBER}"
-SAFE_BRANCH_NAME=BRANCH_NAME.replaceAll('/','-')
+SAFE_BRANCH_NAME="nombre/debranch".replaceAll('/','-')
 DOCKER_TAG=SAFE_BRANCH_NAME + "-${BUILD_VERSION}"
 DOCKER_ARGS="DOCKER_ORG=${DOCKER_ORG} DOCKER_TAG=${DOCKER_TAG}"
 currentBuild.displayName = DOCKER_TAG
