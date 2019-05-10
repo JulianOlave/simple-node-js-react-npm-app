@@ -20,7 +20,7 @@ node {
 
           echo "ENV ${data.env}"
 
-          def builddd= data.env.buildArgs
+          def builddd= data.env[0].buildArgs
 
           echo "buildArgs ${builddd}"
 
