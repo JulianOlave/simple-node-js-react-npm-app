@@ -13,14 +13,15 @@ node {
         def filename = 'pipeline.yml'
         if(fileExists(filename)) {
           def data = readYaml file: filename
+          
+          echo "${gitCommit}"
 
           echo "${data.pipeline_os}"
 
           echo "ENV ${data.env}"
 
-          echo "${gitCommit}"
 
-          echo "buildArgs ${data.env.buildArgs}"
+          echo "buildArgs ${data.env['buildArgs']}"
 
           data.env.buildArgs = data.env.buildArgs + ' Testing!!'
 
