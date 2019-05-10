@@ -45,7 +45,7 @@ node {
 
           echo "buildArgs ${builddd}"
 
-          echo "buildArgsJenkins ${buildArgs}"
+          sh "${buildArgs}"
 
           builddd = builddd + ' Testing!!'
           data.env[0].buildArgs = builddd
