@@ -7,8 +7,8 @@ env:
 
 build:
   scripts:        
-    - ${env.buildArgs}
+    - ${buildArgs}
     - "node --version"
 
 test:
-  ulr: ${buildArgs}
+  ulr: ${env.buildArgs}
