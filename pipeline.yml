@@ -11,6 +11,8 @@ build:
     - '"${buildArgs}"'
     - '${buildArgs}'
     - ${buildArgs}
+    - "{{env.buildArgs}}"
+    - "{{buildArgs}}"
 
 test:
   ulr: "{{env.buildArgs}}"

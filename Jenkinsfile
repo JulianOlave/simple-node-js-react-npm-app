@@ -52,11 +52,17 @@ node {
 
           echo "Url ${data.test.url}"
           echo "Url 2 ${data.test.url2}"
+          
 
           for(def cmd: data.build.scripts){
             // this.utils.runCmd(cmd)
             // echo "comand: ${cmd}"
-            echo " ${cmd}"
+            try{
+              sh cmd
+            } catch (_) {
+              echo " errore ${_}"
+            }
+            
           }
 
           sh "rm $filename"
