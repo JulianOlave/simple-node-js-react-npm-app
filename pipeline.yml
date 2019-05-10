@@ -9,6 +9,7 @@ env:
 build:
   scripts:        
     - "${buildArgs}"
+    - '${buildArgs}'
     - ${buildArgs}
 
 test:
