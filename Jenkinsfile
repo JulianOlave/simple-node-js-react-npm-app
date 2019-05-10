@@ -8,6 +8,8 @@ node {
   docker.image('node:7-alpine').inside { 
     stage('rw') {
       try {
+        def gitInfo = checkout scm
+        def gitCommit = gitInfo["GIT_COMMIT"]
         def filename = 'pipeline.yml'
         if(fileExists(filename)) {
           def data = readYaml file: filename
@@ -15,6 +17,8 @@ node {
           echo "${data.pipeline_os}"
 
           echo "ENV ${data.env}"
+
+          echo "${gitCommit}"
 
           echo "buildArgs ${data.env.buildArgs}"
 
