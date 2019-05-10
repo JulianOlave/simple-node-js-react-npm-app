@@ -7,7 +7,7 @@ env:
 
 build:
   scripts:        
-    - ${buildArgs}
+    - ${env.buildArgs}
     - "node --version"
 
 test:
