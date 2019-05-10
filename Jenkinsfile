@@ -22,6 +22,8 @@
 // DOCKER_ARGS="DOCKER_ORG=${DOCKER_ORG} DOCKER_TAG=${DOCKER_TAG}"
 // currentBuild.displayName = DOCKER_TAG
 
+ENV_VAR = 'install'
+
 node {
   docker.image('node:7-alpine').inside { 
     stage('rw') {

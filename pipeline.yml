@@ -7,5 +7,7 @@ env:
 
 build:
   scripts:
-    - "npm install"
+    - "npm ${ENV_VAR}"
+    - 'npm ${ENV_VAR}'
+    - npm ${ENV_VAR}
     - "node --version"
