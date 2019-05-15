@@ -4,7 +4,7 @@ nodejs_version: "8"
 pipeline_os: "Linux"
 buildArgs: 'npm install'
 env:  
-  - buildArgs: "$BUILD_NUMBER"
+  - buildArgs: "npm --v"
 
 build:
   scripts:        

@@ -8,4 +8,4 @@
 echo 'Wasaaaaap'
 set -x
 echo $BUILD_NUMBER
-echo $env.buildArgs
+echo $buildArgs
