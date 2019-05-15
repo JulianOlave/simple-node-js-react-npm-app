@@ -8,11 +8,7 @@ env:
 
 build:
   scripts:        
-    - '"${buildArgs}"'
-    - '${buildArgs}'
-    - ${buildArgs}
-    - "{{env.buildArgs}}"
-    - "{{buildArgs}}"
+    - "./jenkins/scripts/kill.sh"
 
 test:
   ulr: "{{env.buildArgs}}"
