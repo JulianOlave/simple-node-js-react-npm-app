@@ -4,13 +4,13 @@ nodejs_version: "8"
 pipeline_os: "Linux"
 buildArgs: 'npm install'
 env:  
-  - buildArgs: ${DOCKER_ARGS} BUILD_NAME=${DOCKER_TAG}
+  - buildArgs: $buildArgs
 
 build:
   scripts:        
     - "./jenkins/scripts/kill.sh"
 
 test:
-  ulr: "{{env.buildArgs}}"
+  ulr: $buildArgs
   url2: "{{buildArgs}}"
   
