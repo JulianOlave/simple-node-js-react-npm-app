@@ -6,4 +6,5 @@
 # set -x
 # kill $(cat .pidfile)
 echo 'Wasaaaaap'
+set -x
 "${buildArgs}"
