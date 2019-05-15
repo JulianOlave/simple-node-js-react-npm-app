@@ -11,6 +11,6 @@ build:
     - "./jenkins/scripts/kill.sh"
 
 test:
-  ulr: $buildArgs
-  url2: "$BUILD_NUMBER"
+  ulr: $env.buildArgs
+  url2: "$env.buildArgs"
   
