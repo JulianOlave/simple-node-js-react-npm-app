@@ -4,7 +4,7 @@ nodejs_version: "8"
 pipeline_os: "Linux"
 buildArgs: 'npm install'
 env:  
-  - buildArgs: $buildArgs
+  - buildArgs: $BUILD_NUMBER
 
 build:
   scripts:        
@@ -12,5 +12,5 @@ build:
 
 test:
   ulr: $buildArgs
-  url2: "{{buildArgs}}"
+  url2: $BUILD_NUMBER
   
